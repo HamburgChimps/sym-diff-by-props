@@ -1,0 +1,17 @@
+{
+  "name": "sym-diff-by-props",
+  "version": "1.0.0",
+  "description": "Find the symmetric difference of two arrays of objects by comparing a a set of shared properties",
+  "main": "index.js",
+  "repository": "git@github.com:HamburgChimps/sym-diff-by-props.git",
+  "author": "Alex Olson <alexkellenolson@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "hamjest": "^3.7.1",
+    "jest": "^26.6.3",
+    "ramda": "^0.27.1"
+  }
+}
