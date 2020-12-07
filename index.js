@@ -1,5 +1,3 @@
-// const R = require('ramda');
-
 // symDiffByProps helper functions
 const calcElIdx = (props) => (element) => {
   let idx = '';
@@ -22,7 +20,7 @@ const addToSeen = (seen) => (listIdx, elIdx) => {
 };
 
 const calcDiffies = (diffies) => (seen) => (inserted) => (elIdx, el) => {
-  // inserted is an object where the key is the element index (see line 265) and the value
+  // inserted is an object where the key is the element index (see line 144) and the value
   // is the array index / location in the symmetric difference array
   // If we are attempting to add an element that already exists
   // in the symmetric difference array and has been seen in both lists,
@@ -44,7 +42,7 @@ const calcDiffies = (diffies) => (seen) => (inserted) => (elIdx, el) => {
 // calculate the symmetric difference of two lists of objects by comparing
 // specific property values.
 // Or in symbol form: (list1 U list2) - (list1 n list2)
-const symDiffByProps = (props, list1, list2) => {
+module.exports = symDiffByProps = (props, list1, list2) => {
   const symDiffies = [];
   const seen = {};
   const inserted = {};
@@ -58,11 +56,27 @@ const symDiffByProps = (props, list1, list2) => {
   }
 
   if (!list1.length && list2.length) {
-    return list2;
+    for (let i = 0; i < list2.length; ++i) {
+      const el = list2[i];
+      const idx = calcIdxForProps(el);
+
+      addToDiffies(idx, el);
+
+      addSeenIdx(1, idx);
+    }
   }
 
   if (list1.length && !list2.length) {
-    return list1;
+    for (let i = 0; i < list1.length; ++i) {
+      const el = list1[i];
+      const idx = calcIdxForProps(el);
+
+      addToDiffies(idx, el);
+
+      addSeenIdx(0, idx);
+    }
+
+    return symDiffies.filter(d => !!d);
   }
 
   if (!list1.length && !list2.length) {
@@ -207,5 +221,3 @@ const symDiffByProps = (props, list1, list2) => {
   // in the final result
   return symDiffies.filter(d => !!d);
 };
-
-module.exports = symDiffByProps;
