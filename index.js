@@ -42,7 +42,7 @@ const calcDiffies = (diffies) => (seen) => (inserted) => (elIdx, el) => {
 // calculate the symmetric difference of two lists of objects by comparing
 // specific property values.
 // Or in symbol form: (list1 U list2) - (list1 n list2)
-module.exports = symDiffByProps = (props, list1, list2) => {
+const symDiffByProps = (props, list1, list2) => {
   const symDiffies = [];
   const seen = {};
   const inserted = {};
@@ -221,3 +221,5 @@ module.exports = symDiffByProps = (props, list1, list2) => {
   // in the final result
   return symDiffies.filter(d => !!d);
 };
+
+module.exports = symDiffByProps;
