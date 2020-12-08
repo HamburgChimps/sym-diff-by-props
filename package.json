@@ -1,6 +1,6 @@
 {
   "name": "sym-diff-by-props",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Find the symmetric difference of two arrays of objects by comparing a a set of shared properties",
   "main": "index.js",
   "repository": "git@github.com:HamburgChimps/sym-diff-by-props.git",
