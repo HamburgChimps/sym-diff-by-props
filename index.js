@@ -64,6 +64,8 @@ const symDiffByProps = (props, list1, list2) => {
 
       addSeenIdx(1, idx);
     }
+
+    return symDiffies.filter(d => !!d);
   }
 
   if (list1.length && !list2.length) {
