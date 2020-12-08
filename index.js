@@ -20,7 +20,7 @@ const addToSeen = (seen) => (listIdx, elIdx) => {
 };
 
 const calcDiffies = (diffies) => (seen) => (inserted) => (elIdx, el) => {
-  // inserted is an object where the key is the element index (see line 144) and the value
+  // inserted is an object where the key is the element index (see line 146) and the value
   // is the array index / location in the symmetric difference array
   // If we are attempting to add an element that already exists
   // in the symmetric difference array and has been seen in both lists,
